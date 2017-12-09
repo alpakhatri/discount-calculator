@@ -31,4 +31,7 @@ You need to have following softwares installed on your machine.
    
 # DESIGN
    
-   
+Please find class diagram in Wiki Page:
+https://github.com/alpakhatri/discount-calculator/wiki
+
+
