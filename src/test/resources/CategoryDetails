@@ -1,0 +1,8 @@
+1,Mens wear,-1,false,0
+2,Shirts,1,false,0
+3,Trousers,1,false,0
+4,Casuals,3,true,30
+5,Jeans,3,true,20
+6,Womens wear,-1,true,50
+7,Dresses,6,false,0
+8,Footwear,6,false,0

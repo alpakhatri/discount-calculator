@@ -1,4 +1,4 @@
-package com.sg.fnf.service;
+package com.sg.fnf.test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,23 +8,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import com.sg.fnf.domain.Category;
-import com.sg.fnf.strategy.DiscountStrategy;
 
-@Service
-public class CategoryService implements DiscountStrategy<Category>{
+
+public class CategoryServiceTest {
 
 	private static Map<Integer,Category> categoriesById = new HashMap<>();
-
-	public CategoryService(){
-		this.initializeCategories();
-	}
-	private void initializeCategories(){
+	@BeforeClass
+	public static void setup(){
 		BufferedReader reader = null ;
 		try{
-			 reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/main/resources/CategoryDetails"));
+			 reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/test/resources/CategoryDetails"));
 			String line;
 			while ((line = reader.readLine()) != null) {
                 String[] categoryDetails = line.split(",");
@@ -44,29 +42,27 @@ public class CategoryService implements DiscountStrategy<Category>{
         }
 	}
 	
-	public List<Category> getAncestors(Category category){
+	@Test
+	public void testAncestors(){
 		List<Category> parentCategories = new ArrayList<>();
-		
+		Category category  = categoriesById.get(5);
 		while(category !=null && category.getParentCategoryId() != -1 ){
 			Category parentCategory = getParentCategory(category);
 			category = parentCategory;
 			parentCategories.add(category);
 		}
-		return parentCategories;
+		Assert.assertEquals(2, parentCategories.size());
 	}
 	
 	public Category getParentCategory(Category category){
 		return category.getParentCategoryId() != -1 ? categoriesById.get(category.getParentCategoryId()) : null;
 	}
 	
-	public Category getCategoryByName(String name){
-		return categoriesById.values().stream().filter(cateogry -> cateogry.getName().equals(name)).findFirst().get();
+	@Test
+	public void testParentCategory(){
+		Category category  = categoriesById.get(3);
+		Category parentCat =  categoriesById.get(category.getParentCategoryId()) ;
+		Assert.assertEquals(-1,parentCat.getParentCategoryId());
 	}
-	
-	@Override
-	public boolean IsdiscountApplicable(Category data) {
-		return data.isDiscountPresent();
-	}
-	
-
 }
+

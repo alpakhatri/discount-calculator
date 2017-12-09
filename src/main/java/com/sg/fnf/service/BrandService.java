@@ -6,9 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.sg.fnf.domain.Brand;
 import com.sg.fnf.strategy.DiscountStrategy;
 
+@Service
 public class BrandService implements DiscountStrategy<Brand>{
 	
 	private static List<Brand> brands = new ArrayList<>();
@@ -16,6 +19,7 @@ public class BrandService implements DiscountStrategy<Brand>{
 	public BrandService(){
 		initializeAllBrands();
 	}
+	
 	private static void initializeAllBrands(){
 		BufferedReader reader = null ;
 		try{

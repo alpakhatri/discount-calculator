@@ -5,12 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.sg.fnf.domain.Category;
 import com.sg.fnf.domain.InventoryItem;
 
+@Service
 public class InventoryService {
+	
+	@Autowired
 	private BrandService brandService = new BrandService();
 
+	@Autowired
 	private CategoryService categoryService = new CategoryService();
 	
 	public Map<Integer,InventoryItem> generateInventoryFromInput(String[] inventory) {

@@ -6,10 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.sg.fnf.domain.InventoryItem;
 
+@Service
 public class OrderService {
 
+	@Autowired
 	private InventoryService invService = new InventoryService();
 	
 	public Collection<Float> calculateTotalPrice(String[] inv, String[] orders) {
@@ -31,7 +36,7 @@ public class OrderService {
 			items.forEach(item -> {
 				float calculatedDiscount = invService.calculateDiscount(item);
 				item.setDiscountedPrice(calculatedDiscount);
-				Float oldVal = totalDiscountedPrice.get(order) != null ? totalDiscountedPrice.get(order) : 0;
+				float oldVal = totalDiscountedPrice.get(order) != null ? totalDiscountedPrice.get(order) : 0;
 				totalDiscountedPrice.put(order, oldVal+calculatedDiscount);
 			});
 		});
