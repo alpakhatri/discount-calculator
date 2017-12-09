@@ -1,11 +1,11 @@
 # discount-calculator
 
-Pre-Requisite:
+# Pre-Requisite:
 You need to have following softwares installed on your machine.
 - JDK 1.8 
 - Maven
 
-Instructions to run:
+# Instructions to run:
 
 1. On Terminal, go to discount-calculator package and run following command:
    mvn clean install
@@ -28,6 +28,7 @@ Instructions to run:
    You can change the input in these files and see the output for same in output.txt
    
    
-DESIGN
+   
+# DESIGN
    
    
