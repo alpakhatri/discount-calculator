@@ -3,6 +3,7 @@
   <groupId>com.sg.fnf</groupId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
+  <artifactId>discount-calculator</artifactId>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,79 +21,39 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-     <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
     <dependency>
-        <groupId>info.cukes</groupId>
-        <artifactId>cucumber-java</artifactId>
-        <version>1.2.5</version>
-        <scope>test</scope>
+    	<groupId>junit</groupId>
+    	<artifactId>junit</artifactId>
+    	<scope>test</scope>
     </dependency>
-    <dependency>
-        <groupId>info.cukes</groupId>
-        <artifactId>cucumber-junit</artifactId>
-        <version>1.2.5</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-server</artifactId>
-        <version>3.4.0</version>
-        <scope>test</scope>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
-	<dependency>
-	    <groupId>javax.persistence</groupId>
-	    <artifactId>persistence-api</artifactId>
-	    <version>1.0</version>
-	</dependency>
-	    
-    <dependency>
-        <groupId>info.cukes</groupId>
-        <artifactId>cucumber-core</artifactId>
-        <version>1.2.5</version>
-    </dependency>
-	<dependency>
-	    <groupId>javax.ws.rs</groupId>
-	    <artifactId>javax.ws.rs-api</artifactId>
-	    <version>2.0-m12</version>
-	</dependency>
-	
-	
   </dependencies>
- 
- 	<build>
-           <plugins>
-                        <plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-compiler-plugin</artifactId>
-                                <configuration>
-                                        <source>${java.version}</source>
-                                        <target>${java.version}</target>
-                                </configuration>
-                        </plugin>
-			            <plugin>
-			                <groupId>org.springframework.boot</groupId>
-			                <artifactId>spring-boot-maven-plugin</artifactId>
-			                <version>1.5.1.RELEASE</version>
-			                <configuration>
-			                    <fork>true</fork>
-			                    <mainClass>com.tesco.dcs.flare.ugc.Application</mainClass>
-			                    <classifier>fat</classifier>
-			                </configuration>
-			                <executions>
-			                    <execution>
-			                        <goals>
-			                            <goal>repackage</goal>
-			                        </goals>
-			                    </execution>
-			                </executions>
-			            </plugin>
-				        
-                </plugins>
-        </build>
+  <build>
+      <plugins>
+          <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <configuration>
+                       <source>${java.version}</source>
+                       <target>${java.version}</target>
+               </configuration>
+         </plugin>
+         <plugin>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-maven-plugin</artifactId>
+             <configuration>
+                 <fork>true</fork>
+                 <mainClass>com.sg.fnf.OrdersApplication</mainClass>
+                 <classifier>fat</classifier>
+             </configuration>
+             <executions>
+                 <execution>
+                     <goals>
+                         <goal>repackage</goal>
+                     </goals>
+                 </execution>
+             </executions>
+         </plugin>
+      </plugins>
+   </build>
 
- 	<artifactId>discount-calculator</artifactId>
 </project>

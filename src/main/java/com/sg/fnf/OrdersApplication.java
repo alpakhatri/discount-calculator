@@ -43,7 +43,7 @@ public class OrdersApplication implements CommandLineRunner  {
 	 	private void writeOutputToFile(Collection<Float> totalPrices) {
 	 		BufferedWriter writer = null;
 	 		try {
-				 writer = new BufferedWriter(new FileWriter("/workspace/tesco/discount-calculator/src/main/resources/output.txt",true));
+				 writer = new BufferedWriter(new FileWriter("/workspace/tesco/discount-calculator/src/main/resources/output.txt"));
 				writer.write("Expected Output:\n");
 				for(Float price : totalPrices){
 						writer.write(String.valueOf(price)+"\n");
