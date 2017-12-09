@@ -1,8 +1,8 @@
 package com.sg.fnf.service;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,10 +20,10 @@ public class BrandService implements DiscountStrategy<Brand>{
 		initializeAllBrands();
 	}
 	
-	private static void initializeAllBrands(){
+	private void initializeAllBrands(){
 		BufferedReader reader = null ;
 		try{
-			 reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/main/resources/BrandDetails"));
+			 reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/BrandDetails.txt")));
 			String line;
 			while ((line = reader.readLine()) != null) {
                 String[] brandDetails = line.split(",");

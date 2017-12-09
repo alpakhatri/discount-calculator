@@ -20,7 +20,7 @@ public class BrandServiceTest {
 	public static void setup(){
 		BufferedReader reader = null ;
 		try{
-			 reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/test/resources/BrandDetails"));
+			 reader = new BufferedReader(new FileReader("discount-calculator/src/test/resources/BrandDetails.txt"));
 			String line;
 			while ((line = reader.readLine()) != null) {
                 String[] brandDetails = line.split(",");

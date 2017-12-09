@@ -1,8 +1,8 @@
 package com.sg.fnf.service;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +24,7 @@ public class CategoryService implements DiscountStrategy<Category>{
 	private void initializeCategories(){
 		BufferedReader reader = null ;
 		try{
-			 reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/main/resources/CategoryDetails"));
+			 reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/CategoryDetails.txt")));
 			String line;
 			while ((line = reader.readLine()) != null) {
                 String[] categoryDetails = line.split(",");

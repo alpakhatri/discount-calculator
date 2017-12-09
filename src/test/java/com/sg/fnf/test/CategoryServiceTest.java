@@ -22,7 +22,7 @@ public class CategoryServiceTest {
 	public static void setup(){
 		BufferedReader reader = null ;
 		try{
-			 reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/test/resources/CategoryDetails"));
+			 reader = new BufferedReader(new FileReader("discount-calculator/src/test/resources/CategoryDetails.txt"));
 			String line;
 			while ((line = reader.readLine()) != null) {
                 String[] categoryDetails = line.split(",");

@@ -2,9 +2,14 @@ package com.sg.fnf;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collection;
 
 import org.slf4j.Logger;
@@ -43,11 +48,12 @@ public class OrdersApplication implements CommandLineRunner  {
 	 	private void writeOutputToFile(Collection<Float> totalPrices) {
 	 		BufferedWriter writer = null;
 	 		try {
-				 writer = new BufferedWriter(new FileWriter("/workspace/tesco/discount-calculator/src/main/resources/output.txt"));
-				writer.write("Expected Output:\n");
-				for(Float price : totalPrices){
-						writer.write(String.valueOf(price)+"\n");
-				}
+	 			Path path = Paths.get("src/main/resources/output.txt");
+	 			 writer = Files.newBufferedWriter(path, Charset.forName("UTF-8"));
+	 				writer.write("Expected Output:\n");
+					for(Float price : totalPrices){
+							writer.write(String.valueOf(price)+"\n");
+					}
 			} catch (IOException e) {
 				logger.error("There is an error while writing to the file");
 			}
@@ -67,7 +73,7 @@ public class OrdersApplication implements CommandLineRunner  {
 			String[] inventory = null ;
 	 		BufferedReader reader = null;
 			try {
-				reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/main/resources/InventoryDetails"));
+				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/InventoryDetails.txt")));
 				String line = reader.readLine();
 				if(line != null){
 					inventory = new String[Integer.parseInt(line)];
@@ -95,7 +101,7 @@ public class OrdersApplication implements CommandLineRunner  {
 			String[] orders = null;
 	 		BufferedReader reader = null;
 			try {
-				reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/main/resources/CustomerOrders"));
+				reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/CustomerOrders.txt")));
 				String line = reader.readLine();
 				if(line != null){
 					orders = new String[Integer.parseInt(line)];

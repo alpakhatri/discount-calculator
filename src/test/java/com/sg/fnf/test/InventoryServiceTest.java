@@ -28,7 +28,7 @@ public class InventoryServiceTest {
 		String[] inventory = null ;
  		BufferedReader reader = null;
 		try {
-			reader = new BufferedReader(new FileReader("/workspace/tesco/discount-calculator/src/main/resources/InventoryDetails"));
+			reader = new BufferedReader(new FileReader("discount-calculator/src/main/resources/InventoryDetails.txt"));
 			String line = reader.readLine();
 			if(line != null){
 				inventory = new String[Integer.parseInt(line)];
