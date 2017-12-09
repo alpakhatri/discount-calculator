@@ -16,8 +16,8 @@ Instructions to run:
    cd target
    java -jar discount-calculator-1.0.0-SNAPSHOT-fat.jar
    
-3. This should generate a output.txt in the parent folder
-   discount-calculator/output.txt
+3. This should generate a output.txt in the resources folder
+   discount-calculator/src/main/resources/output.txt
    
    This output.txt contains the expected output for the given problem
    You can find input data in src/main/resources in following files
